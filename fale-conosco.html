@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <title>All about Google Glass</title>
+    <link rel="stylesheet" href="_css/estilo.css"/>
+    <link rel="stylesheet" href="_css/form.css"/>
+    <script src="_javascript/funcoes.js"></script>
+    <script>
+        function calc_total() {
+            var qtd = parseInt(document.getElementById('cQtd').value);
+            tot = qtd * 1500;
+            document.getElementById('cTot').value = tot;
+        }
+    </script>
+</head>
+<body>
+<div id="interface">
+    <header id="cabecalho">
+        <hgroup>
+            <h1>Google Glass</h1>
+            <h2>The Google revolution is coming</h2>
+        </hgroup>
+        <img id="icone" src="_imagens/contato.png"/>
+
+        <nav id="menu">
+            <h1>Main menu</h1>
+            <ul>
+                <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="index.html">Home</a></li>
+                <li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Specifications</a></li>
+                <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fotos.html">Photos</a></li>
+                <li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html">Multimedia</a></li>
+                <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="corpo-full">
+        <article id="noticia-principal">
+            <header id="cabecalho-artigo">
+                <hgroup>
+                    <h3>Contact Us > Contact</h3>
+                    <h1>Contact Form</h1>
+                    <h2>by Tiago Bernardo</h2>
+                    <h3>Updated on 10/March/2023</h3>
+                </hgroup>
+            </header>
+
+            <form method="post" id="fContato" action="mailto:tiago.bernardo@hotmail.com.br" oninput="calc_total();">
+                <fieldset id="usuario">
+                    <legend>User ID</legend>
+                    <p><label for="cNome">Name</label>:<input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Full name"/></p>
+                    <p><label for="cSenha">Password</label>:<input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 Digits"/></p>
+                    <p><label for="cMail">Email:</label><input type="email" name="tMail" id="cMail" size="20" maxlength="40" /></p>
+                    <fieldset id="sexo"><legend>Sex</legend>
+                        <input type="radio" name="tSexo" id="cMasc" checked/> <label for="cMasc" >Male</label><br/>
+                        <input type="radio" name="tSexo" id="cFem"/><label for="cFem">Female</label></fieldset>
+                    <p>Date of birth: <input type="date" name="tNasc" id="cNasc" /></p>
+                </fieldset>
+
+                <fieldset id="endereco">
+                    <legend>User Address</legend>
+                    <p><label for="cRua">Line 1</label>: <input type="text" name="tRua" id="cRua" size="13" maxlength="80" placeholder="Street, Avenue"/></p>
+                    <p><label for="cNum">Number:</label><input type="number" name="tNum" id="cNum" min="0" max="99999" /></p>
+                    <p><label for="cEst">County:</label><select name="tEst" id="cEst">
+                        <optgroup label="Southeast region">
+                            <option value="DU" selected>Dublin</option>
+                            <option value="LI">Limerick</option>
+                            <option value="CO">Cork</option>
+                        </optgroup>
+
+                        <optgroup label="Northeast Region">
+                            <option value="AN">Antrim</option>
+                            <option value="AR">Armagh</option>
+                            <option value="FE">Fermanagh</option>
+                        </optgroup>
+                    </select> </p>
+                    <p><label for="cCid">Eircod:</label><input type="text" name="tCid" id="cCid"  maxlength="40" size="20" placeholder="Your eircod" list="cidades"/></p>
+                    <datalist id="cidades">
+                        <option value="D01"></option>
+                        <option value="D02"></option>
+                        <option value="D03"></option>
+                        <option value="D04"></option>
+                    </datalist>
+                </fieldset>
+
+                <fieldset id="mensagem">
+                    <legend>User Message</legend>
+                    <p><label for="cUrg">Degree of Urgency:</label>Min<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2"/>Max</p>
+                    <p><label for cMsg>Message:</label>
+                    <textarea name="tMsg" id="cMsg" cols="35" rows="5" placeholder="Leave your message here"></textarea></p>
+                </fieldset>
+
+                <fieldset id="pedido">
+                    <legend>I want a Google Glass</legend>
+                    <p><input type="checkbox" name="tPed" id="cPed" checked><label for="cPed">I would like to purchase a Google Glass when available</label></p>
+                    <p><label for="cCor">Color:</label><input type="color" name="tCor" id="cCor" value="#0000FF"/></p>
+                    <p><label for="cQtd">Amount:</label><input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0"/></p>
+                    <p><label for="cTot">Total price: U$</label><input type="text" name="tTot" id="cTot" placeholder="Total Payable" readonly></p>
+                </fieldset>
+            <input type="image" name="tEnviar" src="_imagens/botao-send.png">
+            </form>
+
+        </article>
+    </section>/
+<footer id="rodape">
+    <p>Copyright 2023 - by Tiago Bernardo <br/>
+        <a href="http://facebook.com/tiagoebernardo" target="_blank">Facebook</a> |
+        <a href="#"target="_blank">Twitter</a> </p>
+</footer>
+</div>
+</body>
+</html>
